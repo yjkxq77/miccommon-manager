@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mc.manager.bus.common.mapper.AppHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.mc.manager.bus.common.entity.AppHistory" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="app_name" property="appName" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="INTEGER" />
+    <result column="event_type" property="eventType" jdbcType="SMALLINT" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="event_time" property="eventTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

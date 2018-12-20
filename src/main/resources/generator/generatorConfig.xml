@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--配置文件地址，方便通过 ${xx} 引用-->
+    <properties resource="application.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <!--定义的通用 mapper -->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!--<property name="mappers" value="com.mc.core.registers.server.tool.helper.MicBaseMapper"/>-->
+        </plugin>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <!--配置的模型的包位置-->
+        <javaModelGenerator targetPackage="com.mc.manager.bus.common.entity" targetProject="src/main/java"/>
+
+        <!--xml的位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <!--mapper接口的位置-->
+        <javaClientGenerator targetPackage="com.mc.manager.bus.common.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="server_info" domainObjectName="ServerInfo">
+            <!--如果有自增 进行 mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

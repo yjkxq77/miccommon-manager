@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mc</groupId>
+    <artifactId>mic-common-manager</artifactId>
+    <version>2.0-Release</version>
+    <packaging>jar</packaging>
+
+    <name>mic-common-manager</name>
+    <description>通用管理</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!--SpringBoot 内置的web模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--SpringBoot 内置的运行指标采集-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- SpringBoo 内置的 get/set 自动生成插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--SpringBoot 内置的单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--SpringBoot内置的AOP-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!--Google内置的常用工具库-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.1-jre</version>
+        </dependency>
+
+        <!--应该是国产开源最优秀的工具库-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+
+        <!--类似C#的元祖的工具库，方便方法返回多个参数-->
+        <dependency>
+            <groupId>com.github.sd4324530</groupId>
+            <artifactId>JTuple</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <!-- 测试数据生成插件-->
+        <dependency>
+            <groupId>com.github.jsonzou</groupId>
+            <artifactId>jmockdata</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!--db操作+mybatis 相关-->
+
+        <!--mybatis提供的 Spring集成-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <!-- MyBatis的通用mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+
+        <!--Mybatis的分页组件：pageHelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
+        <!--zero-mq-->
+        <dependency>
+            <groupId>org.zeromq</groupId>
+            <artifactId>jeromq</artifactId>
+            <version>0.4.3</version>
+        </dependency>
+
+        <!--同linux打交道-->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.54</version>
+        </dependency>
+
+        <!--jdbc,记得一定要排除默认的 tomcat 连接池,否则引入 hikari 有问题-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>tomcat-jdbc</artifactId>
+                    <groupId>org.apache.tomcat</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--mysql连接需要的 jar 包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--目前性能最好的数据连接池 hikariCP-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+
+        <!-- 重试组件retry组件，用法参考如下地址：https://github.com/jhalterman/failsafe -->
+        <dependency>
+            <groupId>net.jodah</groupId>
+            <artifactId>failsafe</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <!--vi-java 操作虚拟机-->
+        <!--<dependency>-->
+        <!--<groupId>com.vmware</groupId>-->
+        <!--<artifactId>vijava</artifactId>-->
+        <!--<version>5.1</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.toastcoders</groupId>
+            <artifactId>yavijava</artifactId>
+            <version>6.0.05</version>
+        </dependency>
+
+        <!--feign-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>9.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>9.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>9.7.0</version>
+        </dependency>
+
+        <!--&lt;!&ndash;thymeleaf是模板框架&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <!-- 上传 jar 包到私服-->
+    <distributionManagement>
+        <repository>
+            <id>thirdparty</id>
+            <url>http://mc-server:8081/nexus/content/repositories/thirdparty</url>
+        </repository>
+    </distributionManagement>
+
+
+    <build>
+        <!--指定SpringBoot的方式打包-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!--指定当前项目的版本为JDK8编译-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!--mybatis generator-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <!--mybatis generator 的设置 -->
+                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper-generator</artifactId>
+                        <version>1.0.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
